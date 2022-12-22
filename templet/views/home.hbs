@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+    background-color:coral;
+    padding: 0;
+    margin: 0;
+}
+
+.clock{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: antiquewhite;
+    margin-top: 100px;
+    margin-left: 100px;
+    position: relative;
+    border:20px solid cornsilk;
+
+}
+.center{
+    background-color: #000;
+    position: absolute;
+    left: calc(50% - 10px);
+    top:  calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 20;
+}
+.hourHand{
+    width: 10px;
+    height: 75px;
+    background-color: #000;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    position: absolute;
+    top: 75px;
+    left: 145px;
+    z-index: 10;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+      transform: rotate(360deg);
+
+}
+.minuteHand{
+    width: 5px;
+    height: 120px;
+    background-color: #000;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    position: absolute;
+    top: 30px;
+    left: 147px;
+    z-index: 9;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+      transform: rotate(90deg);
+
+}
+.secondHand{
+    width: 2px;
+    height: 120px;
+    background-color:red;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    position: absolute;
+    top: 30px;
+    left: 149px;
+    transition: all 0.06s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 8;  
+      transform: rotate(360deg);
+
+}
+.time{
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    border: 1px solid #fff8dc;
+    background-color: #fff;
+    padding: 5px;
+    display: block;
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,.4);
+    border-radius: 5px;
+    min-width: 70px;
+    height: 15px;
+
+}
+.time small{
+    color:red;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.clock ul{
+    list-style: none;
+    padding: 0;
+
+}
+.clock ul li{
+    position: absolute;
+    width:20px;
+    height:20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    color:red;
+}
+.clock ul li:nth-child(1){
+    right: 22%;
+    top:6.5%;
+}
+.clock ul li:nth-child(2){
+    right: 6%;
+    top:25%;
+}
+.clock ul li:nth-child(3){
+    right: 1%;
+    top:calc(50% - 10px);
+    color:#000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.clock ul li:nth-child(4){
+    right: 6%;
+    top:69%;
+}
+.clock ul li:nth-child(5){
+    right: 22%;
+    top:84%;
+}
+.clock ul li:nth-child(6){
+    right: calc(50% - 10px);
+    top:calc(99% - 20px);
+    color:#000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.clock ul li:nth-child(7){
+    left: 22%;
+    top:84%;
+}
+.clock ul li:nth-child(8){
+    left: 6%;
+    top:69%;
+}
+.clock ul li:nth-child(9){
+    left: 1%;
+    top:calc(50% - 10px);
+    color:#000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.clock ul li:nth-child(10){
+    left: 6%;
+    top:25%;
+}
+.clock ul li:nth-child(11){
+    left: 22%;
+    top:6.5%;
+}
+.clock ul li:nth-child(12){
+    right: calc(50% - 10px);
+    top:1%;
+    color:#000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.div{
+    margin-top: 100px;
+}
+.abc{
+   margin-top: 50px;
+margin-left: 150px;
+}
+.main{
+    display: flex;
+}
+.kk{
+    display: flex;
+    margin-top: 100px;
+    margin-left: 150px;
+        font-size: 20px;
+  
+}
+.aa{
+    display: flex;
+    margin-left: 150px;
+    margin-top: -30px;
+    font-size: 20px;
+
+}
+
+
+.left select{
+width:250px ;
+height: 30px;
+}
+.left label{
+font-weight: 900;
+font-size: 20px;
+}
+    
+    </style>
+</head>
+<body onload="getcontries()">
+    <div class="main">
+       <div class="clock">
+        <div class="hourHand"></div>
+        <div class="minuteHand"></div>
+        <div class="secondHand"></div>
+        <div class="center"></div>
+        <div class="time"></div>
+        <ul>
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+            <li><span>7</span></li>
+            <li><span>8</span></li>
+            <li><span>9</span></li>
+            <li><span>10</span></li>
+            <li><span>11</span></li>
+            <li><span>12</span></li>
+        </ul>
+    </div>
+
+      <audio src="https://sampleswap.org/samples-ghost/DRUMS%20and%20SINGLE%20HITS/snares/5[kb]sidestick.aif.mp3" class="audio"   ></audio>
+    <div class="div">
+        <div class="left">
+    <div class="abc">
+
+      <label for="">Country</label>
+      <select
+        name="country"
+        id="country"
+        class="form-control"
+        onchange="timeanddate(value)"
+      >
+        <option value="0">---Select country---</option>
+      </select> 
+    </div>
+{{!-- 
+    <div class="abc">
+      <label for="">State</label>
+      <select
+        name="state"
+        id="state"
+        class="form-control"
+        onchange="getcity(value)"
+      >
+        <option value="0">---Select country---</option>
+      </select>
+    </div>
+    <div class="abc">
+      <label for="">City</label>
+      <select
+        name="city"
+        id="city"
+        class="form-control"
+        
+      >
+        <option value="0">---Select country---</option>
+      </select>
+
+        </div> --}}
+    </div>
+    </div>
+    <div class="details">
+                       <div class="kk">
+                        <h3 >latitude : </h3>
+                        <h3 id="mylatitude">loading.......</h3>
+                        </div>
+                        <div class="aa">
+                        <h3>longitude : </h3>
+                        <h3 id="mylongitude">loading.......</h3>
+                        </div>
+                        <div class="aa">
+                        <h3>datetime : </h3>
+                        <h3 id="mydatetime">loading.......</h3>
+                        </div>
+                        <div class="aa">
+                        <h3>requested_location : </h3>
+                        <h3 id="myrequested_location">loading.......</h3>
+                        </div>
+                        <div class="aa">
+                        <h3>timezone_location : </h3>
+                        <h3 id="mytimezone_location">loading.......</h3>
+                        </div>
+                        <div class="aa">
+                        <h3>timezone_name : </h3>
+                        <h3 id="mytimezone_name">loading.......</h3>
+                        </div>
+                    </div>
+                   </div>  
+
+</div>
+<script src="js/data.js"></script>
+</body>
+</html>
